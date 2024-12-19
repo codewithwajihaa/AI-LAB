@@ -1,54 +1,60 @@
-#  Question 1 -	Write a Python function to check if a number is even or odd.
+# LAB 4
+#  TASK 1 Check if a number is even or odd
 
+number = int(input("Enter a number to check if it's even or odd: "))
 
-number = 10  # Replace with any number to check
 if number % 2 == 0:
-    print("Even")
+    print(f"The number {number} is even.")
 else:
-    print("Odd")
+    print(f"The number {number} is odd.")
 
+# Lab Task 2: Simple ATM Machine
 
+correct_pin = 1234
+balance = 1000
 
-# Question 3 -	Write a Python function to find the maximum of three numbers.
-a = 5
-b = 12
-c = 9
+pin = int(input("Enter your PIN: "))
 
-if a >= b and a >= c:
-    max_value = a
-elif b >= a and b >= c:
-    max_value = b
+if pin == correct_pin:
+    print("PIN Verified!")
+    while True:
+        print("\nATM Menu:")
+        print("1. Check Balance")
+        print("2. Withdraw Money")
+        print("3. Exit")
+        choice = int(input("Choose an option: "))
+
+        if choice == 1:
+            print(f"Your current balance is: {balance}")
+        elif choice == 2:
+            withdraw_amount = int(input("Enter the amount to withdraw: "))
+            if withdraw_amount <= balance:
+                balance -= withdraw_amount
+                print(f"You have successfully withdrawn {withdraw_amount}. Remaining balance: {balance}")
+            else:
+                print("Insufficient balance!")
+        elif choice == 3:
+            print("Thank you for using the ATM. Goodbye!")
+            break
+        else:
+            print("Invalid option. Please try again.")
 else:
-    max_value = c
-
-print("The maximum number is:", max_value)
+    print("Incorrect PIN. Terminating program.")
 
 
 
+# Lab Task 3: Login System with Logical Operators
+correct_username = "admin"
+correct_password = 12345
 
+username = input("Enter username: ")
+password = int(input("Enter password: "))
 
-
-# QUESTION 2 -	Make starred shapes using Loops 
-#  Pattern 1
-rows = 5
-for i in range(1, rows + 1):
-    print("*" * i)
-
-    # Pattren 2
-        
-rows = 5
-for i in range(rows):
-    print("*" * rows)
-
-
-
-
-
-
-
-
-
-
-
-
-
+if username == correct_username and password == correct_password:
+    print("Login Successful!")
+elif username != correct_username and password != correct_password:
+    print("Incorrect username and password")
+elif username != correct_username:
+    print("Incorrect username")
+elif password != correct_password:
+    print("Incorrect password")
